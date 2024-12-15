@@ -9,7 +9,7 @@ The application uses puppeteer and Javascript to navigate to the <a href=https:/
 
 ## Usage
 
-1. Download and Run the .exe file.
+1. Download and Run the .exe file from the release or compile the code with the required dependencies.
 2. Enter the URL of the website. 
 3. Wait for the results
 4. Find the Core Web Vitals results in the PDF file that is generated.
