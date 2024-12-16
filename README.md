@@ -19,3 +19,6 @@ The application uses puppeteer and Javascript to navigate to the <a href=https:/
 ### White-space at the end
 The PDF has the footer printed in the second page which leads to a large amount of white space at the end, the results should be in the first page of the document.
 
+## Changelog
+
+V1.1 - Fixed file naming issue caused by characters, minor code changes.
