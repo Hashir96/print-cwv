@@ -5,6 +5,10 @@ const prompt = require("prompt-sync")({ sigint: true });
 
 const pageURL = prompt("Please enter the website URL: ");
 
+// Get hostname
+const parsedUrl = new URL(pageURL);
+  const parsedUrlh = parsedUrl.hostname;
+
 puppeteer.launch({
     executablePath: executablePath(),
     headless: "new",
@@ -22,7 +26,7 @@ async function run(){
     await page.type('#i4', pageURL);
 
     await page.keyboard.press('Enter');
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
     
     await page.waitForSelector('.lh-scores-header', { visible: true, timeout: 0 });
 
@@ -58,8 +62,14 @@ async function run(){
 
     await page.waitForTimeout(2500);
 
+
+    // Remove characters from the URL
+const URLreplace = pageURL.replace(':',"")
+const URLName = URLreplace.split('/').join("");
+  const fileName = "pagespeed-"+URLName+".pdf"
+
     //Print page into PDF
-    await page.pdf({ path: 'pagespeed-'+pageURL+'.pdf', printBackground: true, width: 1280, height: scrollDimension.height});
+    await page.pdf({ path: fileName, printBackground: true, width: 1280, height: scrollDimension.height});
     console.log("Success, please find the PDF file for the results")
 } catch (e) {
     console.log("Error"+e)
