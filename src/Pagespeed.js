@@ -5,10 +5,6 @@ const prompt = require("prompt-sync")({ sigint: true });
 
 const pageURL = prompt("Please enter the website URL: ");
 
-// Get hostname
-const parsedUrl = new URL(pageURL);
-  const parsedUrlh = parsedUrl.hostname;
-
 puppeteer.launch({
     executablePath: executablePath(),
     headless: "new",
